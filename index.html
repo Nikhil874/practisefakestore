@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="./styles/index.css">
+    
+</head>
+<body>
+   <div id="container"></div>
+   <div id="main"></div>
+</body>
+</html>
+<script type="module">
+    import navbar from "./component/navbar.js";
+    import {getData,appendData} from "./scripts/script.js"
+var container= document.getElementById("container");
+container.innerHTML=navbar();
+var submit=document.getElementById("submit");
+submit.addEventListener("click",showdata);
+async function showdata(){
+    let number=document.getElementById("results").value;
+  let location= document.getElementById("main");
+    let response= await getData(number);
+   appendData(response,location);
+}
+
+</script>
